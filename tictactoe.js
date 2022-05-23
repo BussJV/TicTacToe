@@ -15,15 +15,16 @@
   let o = [];
 
   function criaXis() {
-    let xir = document.createElement("img");
-    xir.src = "imgs/cruz.svg";
-    xir.classList = "X";
+    let xir = document.createElement("p");
+    xir.classList = "elementoResposta"
+    xir.textContent = "X"
     return xir;
   }
   function criaBolinha() {
-    let bolinhas = document.createElement("img"); 
-    bolinhas.src = "imgs/circle.svg";
-    bolinhas.classList = "O";
+    let bolinhas = document.createElement("p");
+    bolinhas.classList = "elementoResposta"
+    bolinhas.textContent = "O"
+    bolinhas.style.color = "red"
     return bolinhas;
   }
   let valorPlayer = criaXis();
@@ -58,10 +59,10 @@
 
   for (let i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function(e) {
-      this.innerHTML == `<img src="imgs/cruz.svg" class="X">` || this.innerHTML == `<img src="imgs/circle.svg" class="O">` 
+      this.innerHTML == `<p class="elementoResposta">X</p>` || this.innerHTML == `<p class="elementoResposta" style="color: red;">O</p>` 
         ? console.log("Já tem um item aí")
         : this.appendChild(valorPlayer) && cont++;
-      this.innerHTML == `<img src="imgs/cruz.svg" class="X">` ? x.push(i + 1) : o.push(i + 1);
+      this.innerHTML == `<p class="elementoResposta">X</p>` ? x.push(i + 1) : o.push(i + 1);
       cont % 2 == 0 ? (valorPlayer = criaBolinha()) : (valorPlayer = criaXis());
       console.log(valorPlayer)
       verificaVitoria();

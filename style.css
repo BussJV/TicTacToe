@@ -1,22 +1,47 @@
-* {padding: 0; margin: 0;}
+* {
+    margin: 0;
+    padding: 0;
+}
 
 body {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#vitoria {
+    display: none;
+    position: absolute;
+    margin-top: 58px;
+    height: 335px;
+    width: 335px;
+    border-radius: 12px;
+    background-color: rgba(129, 148, 255, 0.349);
     justify-content: center;
     align-items: center;
-    background-color: #07393C;
+    font-size: 44px;
+    font-weight: 800;
 }
 
 .game {
-    display: flex;
-    margin-top: 3rem;
-    font-size: 100px;
-    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 8px;
 }
 
-.game div {
-    width: 15rem;
-    height: 15rem;
+.game .column1 div, .game .column2 div, .game .column3 div {
+    /* border: 1px solid black; */
+    margin-bottom: 8px;
+    height: 100px;
+    width: 100px;
+    border-radius: 12px;
+    box-shadow: 0 0 4px;
+}
+
+.header {
+    margin-bottom: 24px;
+    margin-top: 12px;
+    font-size: 28px;
 }
 
 .caixinha {
@@ -26,99 +51,8 @@ body {
     cursor: pointer;
 }
 
-#box1, #box2 {
-    border-bottom: 8px solid black;
-    border-right: 8px solid black;
-}
-
-#box3 {
-    border-right: 8px solid black;
-}
-
-#box4, #box5 {
-    border-bottom: 8px solid black;
-    border-right: 8px solid black;
-    border-left: 8px solid black;
-}
-
-#box6 {
-    border-left: 8px solid black;
-    border-right: 8px solid black;
-}
-
-#box7, #box8 {
-    border-bottom: 8px solid black;
-}
-
-#vitoria {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    width: 45rem;
-    height: 45rem;
-    position: absolute;
-    background-color: rgba(254, 255, 254, 0.5);
-    padding: 20px;
-    border: 1px solid none;
-    border-radius: 20px;
-    top: 3.5rem;
-    font-family: 'Koulen', cursive;
+.elementoResposta {
+    font-family: 'Sniglet', cursive;
     font-size: 80px;
-}
-
-.X {
-    height: 70%;
-    width: 70%;
-}
-
-.O {
-    height: 80%;
-    width: 80%;
-}
-
-@media (max-width: 500px) {
-    .game div {
-        width: 105px;
-        height: 105px;
-    }
-
-    .X, .O {
-        height: 72px;
-        width: 72px;
-    }
-
-    #vitoria {
-        width: 18rem;
-        height: 19rem;
-        padding: 20px;
-        top: 3rem;
-        font-size: 70px;
-        line-height: 70px;
-        text-align: center;
-    }
-
-    #box5 {
-        border: 1px solid black;
-    }
-    #box4 {
-        border: 1px solid black;
-        border-top: none;
-        border-bottom: none;
-    }
-    #box6 {
-        border: 1px solid black;
-        border-bottom: none;
-        border-top: none;
-    }
-
-    #box1,#box3,#box7,#box9 {
-        border: none;
-    }
-
-    #box8, #box2 {
-        border: 1px solid black;
-        border-left: none;
-        border-right: none;
-    }
-
+    font-weight: 700;
 }
