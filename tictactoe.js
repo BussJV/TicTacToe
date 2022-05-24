@@ -9,6 +9,9 @@
   const box8 = document.getElementById("box8");
   const box9 = document.getElementById("box9");
   let boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
+  document.getElementById("vitoria").firstElementChild.querySelector("button").addEventListener("click", function() {
+    window.location.reload()
+  })
 
   let cont = 1;
   let x = [];
@@ -53,8 +56,12 @@
         document.getElementById("vitoria").style.display = "flex";
       }
     }
-    
-    console.log(x, o);
+
+    if (cont == 10) {
+      document.getElementById("vitoria").style.display = "flex";
+    }
+
+    console.log(x, o, cont);
   }
 
   for (let i = 0; i < boxes.length; i++) {
