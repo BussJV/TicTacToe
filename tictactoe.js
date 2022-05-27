@@ -78,7 +78,7 @@
       const containVictoryO = vitoria.every(element => {
         return o.includes(element);
       });
-      
+
       if (containVictoryX) {
         vitoria2.append(paraWinX);
         idVitoria.style.display = "flex";
@@ -88,8 +88,10 @@
       }
     }
     if (cont == 10) {
-      vitoria2.append(paraDraw);
-      idVitoria.style.display = "flex";
+      if (!containVictoryO && !containVictoryX) {
+        vitoria2.append(paraDraw);
+        idVitoria.style.display = "flex";
+      }
     }
   }
 
@@ -98,8 +100,7 @@
       objTicTacToe.atualizaBoxes();
       const random = Math.floor(Math.random() * objTicTacToe.boxes.length);
       objTicTacToe.boxes[random].appendChild(criaBolinha());
-      o.push(parseInt(objTicTacToe.boxes[random].getAttribute("id").charAt(3)))
-      verificaVitoria()
+      o.push(parseInt(objTicTacToe.boxes[random].getAttribute("id").charAt(3)));
       cont++;
     }
   }
@@ -117,8 +118,8 @@
         : o.push(i + 1);
       // console.log(valorPlayer);
       objTicTacToe.atualizaBoxes();
-      verificaVitoria();
       geraValorCpu();
+      verificaVitoria();
     });
   }
 })();
