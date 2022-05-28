@@ -5,9 +5,6 @@
 
 body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    
 }
 
 #vitoria {
@@ -132,4 +129,36 @@ body {
 
 .toggleButtonMode p{
     font-size: 14px;
+}
+
+#tela2 {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F9FBF2;
+}
+
+#tela1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.sobreJogo {
+    margin: 12px;
+    font-size: 20px;
+}
+
+.meuNome {
+    font-weight: 600;
+}
+
+.vamosJogar {
+    font-size: 20px;
 }

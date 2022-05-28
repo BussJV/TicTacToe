@@ -14,6 +14,12 @@
     .addEventListener("click", function() {
       window.location.reload();
     });
+  const btnTela1 = document.querySelector(".vamosJogar").querySelector("button");
+
+  btnTela1.addEventListener("click", function () {
+    document.getElementById("tela1").style.display = "none"
+    document.getElementById("tela2").style.display = "flex"
+  })
 
   const objTicTacToe = {
     boxes: [box1, box2, box3, box4, box5, box6, box7, box8, box9],
@@ -47,13 +53,14 @@
     let xir = document.createElement("p");
     xir.classList = "elementoResposta";
     xir.textContent = "X";
+    xir.style.color = "#18314F"
     return xir;
   }
   function criaBolinha() {
     let bolinhas = document.createElement("p");
     bolinhas.classList = "elementoResposta";
     bolinhas.textContent = "O";
-    bolinhas.style.color = "red";
+    bolinhas.style.color = "#ff206e";
     return bolinhas;
   }
 
@@ -98,12 +105,14 @@
         objTicTacToe.end = true
       }
     }
+    return objTicTacToe.end
   }
 
   function geraValorCpu() {
     if (!doisPlayers && cont % 2 == 0 && !objTicTacToe.end) {
       objTicTacToe.atualizaBoxes();
-      if (cont == 10) return;
+      console.log(objTicTacToe.end)
+      if (cont == 10 || objTicTacToe.end) return;
       const random = Math.floor(Math.random() * objTicTacToe.boxes.length);
       objTicTacToe.boxes[random].appendChild(criaBolinha());
       o.push(parseInt(objTicTacToe.boxes[random].getAttribute("id").charAt(3)));
@@ -115,17 +124,20 @@
     objTicTacToe.boxes[i].addEventListener("click", function(e) {
       doisPlayers = document.getElementById("toggle1").checked;
       cont % 2 == 0 ? (valorPlayer = criaBolinha()) : (valorPlayer = criaXis());
-      this.innerHTML == `<p class="elementoResposta">X</p>` ||
-      this.innerHTML == `<p class="elementoResposta" style="color: red;">O</p>`
+      this.innerHTML == `<p class="elementoResposta" style="color: rgb(24, 49, 79);">X</p>` ||
+      this.innerHTML == `<p class="elementoResposta" style="color: rgb(255, 32, 110);">O</p>`
         ? console.log("Já tem um item aí")
         : this.appendChild(valorPlayer) && cont++;
-      this.innerHTML == `<p class="elementoResposta">X</p>`
+      this.innerHTML == `<p class="elementoResposta" style="color: rgb(24, 49, 79);">X</p>`
         ? x.push(i + 1)
         : o.push(i + 1);
       // console.log(valorPlayer);
       objTicTacToe.atualizaBoxes();
+
+      if (verificaVitoria()) return;
       geraValorCpu();
       verificaVitoria();
+      
     });
   }
 })();

@@ -14,46 +14,60 @@
 
 <body>
 
-    <section id="vitoria">
-        <div class="posBG">
-            <p>Fim de Jogo</p>
-            <button>Reiniciar</button>
+
+    <div id="tela1" class="tela1">
+        <div class="sobreJogo">
+            <p>Esse jogo foi desenvolvido por</p>
+            <p><span class="meuNome">João Vitor Alves Buss</span></p>
+            <p>Foram utilizados somente HTML, CSS e Javascript, sem nenhum framework ou biblioteca</p>
         </div>
-    </section>
-
-    <header class="header">
-        <div>
-            <p>TicTacToe | Buss</p>
+        <div class="vamosJogar">
+            <p>Vamos jogar?</p>
+            <button>Vamos</button>
         </div>
-        <div class="toggleButtonMode">
-            <input class="toggle" type="checkbox" id="toggle1">
-            <label for="toggle1"></label>
-            <p>Ative para dois jogadores</p>
-        </div>
-    </header>
-
-    <section class="game">
-
-        <div class="column1">
-            <div id="box1" class="caixinha"></div>
-            <div id="box2" class="caixinha"></div>
-            <div id="box3" class="caixinha"></div>
-        </div>
-
-        <div class="column2">
-            <div id="box4" class="caixinha"></div>
-            <div id="box5" class="caixinha"></div>
-            <div id="box6" class="caixinha"></div>
-        </div>
-
-        <div class="column3">
-            <div id="box7" class="caixinha"></div>
-            <div id="box8" class="caixinha"></div>
-            <div id="box9" class="caixinha"></div>
-        </div>
+    </div>
 
 
-    </section>
+    <div id="tela2" class="tela2">
+        <section id="vitoria">
+            <div class="posBG">
+                <p>Fim de Jogo</p>
+                <button>Reiniciar</button>
+            </div>
+        </section>
+
+        <header class="header">
+            <div>
+                <p>TicTacToe | Buss</p>
+            </div>
+            <div class="toggleButtonMode">
+                <input class="toggle" type="checkbox" id="toggle1">
+                <label for="toggle1"></label>
+                <p>Ative para dois jogadores</p>
+            </div>
+        </header>
+
+        <section class="game">
+
+            <div class="column1">
+                <div id="box1" class="caixinha"></div>
+                <div id="box2" class="caixinha"></div>
+                <div id="box3" class="caixinha"></div>
+            </div>
+
+            <div class="column2">
+                <div id="box4" class="caixinha"></div>
+                <div id="box5" class="caixinha"></div>
+                <div id="box6" class="caixinha"></div>
+            </div>
+
+            <div class="column3">
+                <div id="box7" class="caixinha"></div>
+                <div id="box8" class="caixinha"></div>
+                <div id="box9" class="caixinha"></div>
+            </div>
+        </section>
+    </div>
 
     <script src="tictactoe.js"></script>
 </body>
