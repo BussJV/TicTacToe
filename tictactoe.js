@@ -61,6 +61,8 @@
     const idVitoria = document.getElementById("vitoria");
     const vitoria2 = document.querySelector(".posBG");
     const vitorias = objTicTacToe.vitoriasPossiveis;
+    let containVictoryO;
+    let containVictoryX;
 
     let paraWinX = document.createElement("p");
     paraWinX.textContent = "Vitória do X";
@@ -72,32 +74,36 @@
     for (let i = 0; i < vitorias.length; i++) {
       let vitoria = vitorias[i];
 
-      const containVictoryX = vitoria.every(element => {
+      containVictoryX = vitoria.every(element => {
         return x.includes(element);
       });
-      const containVictoryO = vitoria.every(element => {
+      containVictoryO = vitoria.every(element => {
         return o.includes(element);
       });
 
       if (containVictoryX) {
+        objTicTacToe.end = true;
         vitoria2.append(paraWinX);
         idVitoria.style.display = "flex";
       } else if (containVictoryO) {
+        objTicTacToe.end = true;
         vitoria2.append(paraWinO);
         idVitoria.style.display = "flex";
       }
     }
     if (cont == 10) {
-      if (!containVictoryO && !containVictoryX) {
+      if (!objTicTacToe.end) {
         vitoria2.append(paraDraw);
         idVitoria.style.display = "flex";
+        objTicTacToe.end = true
       }
     }
   }
 
   function geraValorCpu() {
-    if (!doisPlayers && cont % 2 == 0) {
+    if (!doisPlayers && cont % 2 == 0 && !objTicTacToe.end) {
       objTicTacToe.atualizaBoxes();
+      if (cont == 10) return;
       const random = Math.floor(Math.random() * objTicTacToe.boxes.length);
       objTicTacToe.boxes[random].appendChild(criaBolinha());
       o.push(parseInt(objTicTacToe.boxes[random].getAttribute("id").charAt(3)));
